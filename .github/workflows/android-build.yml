@@ -143,10 +143,10 @@ jobs:
                   f"No source verification tests found in {verification}"
               )
 
-          relative_root = project_root.relative_to(Path.cwd())
+          project_dir = project_root.as_posix()
 
           with open(os.environ["GITHUB_OUTPUT"], "a") as output:
-              output.write(f"project_dir={relative_root}\n")
+              output.write(f"project_dir={project_dir}\n")
 
           print(f"Archive: {archive.name}")
           print(f"Android project root: {project_root}")
@@ -266,10 +266,10 @@ jobs:
               )
 
           project_root = candidates[0]
-          relative_root = project_root.relative_to(Path.cwd())
+          project_dir = project_root.as_posix()
 
           with open(os.environ["GITHUB_OUTPUT"], "a") as output:
-              output.write(f"project_dir={relative_root}\n")
+              output.write(f"project_dir={project_dir}\n")
 
           print(f"Archive: {archive.name}")
           print(f"Android project root: {project_root}")
